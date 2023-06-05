@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block content%}
+<div>
+    <h2>{{user.full_name()}}</h2>
+</div>
+<div>
+    <img src="{{user.image_url}}" width="200" height="200">
+</div>
+<div>
+    <form>
+        <button formaction="/users/{{user.id}}/edit" formmethod="GET">Edit</button>
+        <button formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
+    </form>
+</div>
+{%endblock%}

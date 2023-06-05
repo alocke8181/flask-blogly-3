@@ -31,3 +31,27 @@ def home():
     """Show home page"""
     users = User.query.order_by(User.last_name, User.first_name).all()
     return render_template('home.html',users=users)
+
+@app.route('/users/new', methods=['GET'])
+def new_user_form():
+    """Show the New User Form"""
+    return render_template('new.html')
+
+@app.route('/users/new', methods=['POST'])
+def create_new_user():
+    """Create a new user from the form"""
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    image_url = request.form['image_url'] or None
+    
+    new_user = User(first_name=first_name,last_name=last_name,image_url=image_url)
+    with app.app_context():
+        db.session.add(new_user)
+        db.session.commit()
+    return redirect('/')
+
+@app.route('/users/<int:user_id>')
+def show_user(user_id):
+    """Show info for a specific user"""
+    user = User.query.get_or_404(user_id)
+    return render_template('user.html',user=user)
