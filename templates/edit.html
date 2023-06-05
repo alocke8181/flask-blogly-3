@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block content%}
+<h2>Edit User: {{user.full_name()}}</h2>
+<div>
+    <form method="POST">
+        <div>
+            <label for="new_first_name">First Name * </label>
+            <input type="text" name="new_first_name" value="{{user.first_name}}">
+        </div>
+        <div>
+            <label for="new_last_name">Last Name * </label>
+            <input type="text" name="new_last_name" value="{{user.last_name}}">
+        </div>
+        <div>
+            <label for="new_image_url">Profile Pic URL</label>
+            <input type="text" name="new_image_url" value="{{user.image_url}}">
+        </div>
+        <p>(*) Indicates a Required Field</p>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/users/{{user.id}}">Cancel</a>
+</div>
+{%endblock%}

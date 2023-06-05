@@ -3,11 +3,11 @@
 <h2>Create a New User</h2>
 <form id="new_user" method="POST">
     <div>
-        <label for="first_name">First Name *</label>
+        <label for="first_name">First Name * </label>
         <input type='text' name="first_name" placeholder="First Name">
     </div>
     <div>
-        <label for="last_name">Last Name *</label>
+        <label for="last_name">Last Name * </label>
         <input type='text' name="last_name" placeholder="Last Name">
     </div>
     <div>
@@ -15,5 +15,10 @@
         <input type='text' name="image_url" placeholder="URL">
     </div>
     <p>(*) Indicates a Required Field</p>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
 
 </form>
+
+{%endblock%}
