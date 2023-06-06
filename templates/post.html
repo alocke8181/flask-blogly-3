@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h2>{{post.title}}</h2>
+<div>
+    {{post.content}}
+</div>
+<i>By {{post.owner.full_name()}}</i>
+<div>
+    <a href="/users/{{post.owner_id}}">Return</a>
+    <a href="/posts/{{post.id}}/edit">Edit</a>
+    <a href="/posts/{{post.id}}/delete">Delete</a>
+</div>
+
+{%endblock%}
