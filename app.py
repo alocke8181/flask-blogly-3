@@ -90,7 +90,7 @@ def new_post(user_id):
     new_post = Post(title=title, content=content, owner_id=user_id)
     db.session.add(new_post)
     db.session.commit()
-    return redirect(f'/posts/{post.id}')
+    return redirect(f'/posts/{new_post.id}')
 
 @app.route('/posts/<int:post_id>')
 def show_post(post_id):
