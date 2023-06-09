@@ -26,7 +26,7 @@ def home():
 @app.route('/users/new', methods=['GET'])
 def new_user_form():
     """Show the New User Form"""
-    return render_template('new_user.html')
+    return render_template('user/new_user.html')
 
 @app.route('/users/new', methods=['POST'])
 def create_new_user():
@@ -45,13 +45,13 @@ def create_new_user():
 def show_user(user_id):
     """Show info for a specific user"""
     user = User.query.get_or_404(user_id)
-    return render_template('user.html',user=user)
+    return render_template('user/user.html',user=user)
 
 @app.route('/users/<int:user_id>/edit')
 def show_edit_user_form(user_id):
     """Show the form to edit the user"""
     user = User.query.get(user_id)
-    return render_template('edit_user.html',user=user)
+    return render_template('user/edit_user.html',user=user)
 
 @app.route('/users/<int:user_id>/edit', methods=['POST'])
 def edit_user(user_id):
@@ -80,7 +80,7 @@ def delete_user(user_id):
 def show_new_post_form(user_id):
     """Show the new post form"""
     user = User.query.get(user_id)
-    return render_template('new_post.html',user=user)
+    return render_template('post/new_post.html',user=user)
 
 @app.route('/users/<int:user_id>/posts/new',methods=['POST'])
 def new_post(user_id):
@@ -96,13 +96,13 @@ def new_post(user_id):
 def show_post(post_id):
     """Show the post"""
     post = Post.query.get(post_id)
-    return render_template('post.html',post=post)
+    return render_template('post/post.html',post=post)
 
 @app.route('/posts/<int:post_id>/edit', methods=['GET'])
 def show_edit_post(post_id):
     """Show the edit post form"""
     post = Post.query.get(post_id)
-    return render_template('edit_post.html',post=post)
+    return render_template('post/edit_post.html',post=post)
 
 @app.route('/posts/<int:post_id>/edit', methods=['POST'])
 def edit_post(post_id):
