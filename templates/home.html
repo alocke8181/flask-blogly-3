@@ -1,12 +1,44 @@
 {%extends 'base.html'%}
 {%block content%}
-<h2>Users</h2>
-<ul>
-    {%for user in users%}
-    <li>
-        <a href="/users/{{user.id}}">{{user.full_name()}}</a>
-    </li>
-    {%endfor%}
-</ul>
-<a href="/users/new">New User</a>
+<table>
+    <tr>
+        <td>
+            <a href="/users"><h2>Users</h2></a>
+            <ul>
+                {%for user in users%}
+                <li>
+                    <a href="/users/{{user.id}}">{{user.full_name()}}</a>
+                </li>
+                {%endfor%}
+            </ul>
+            <div>
+                <a href="/users/new">New User</a>
+            </div>
+        </td>
+        <td>
+            <a href="/posts"><h2>Posts</h2></a>
+            <ul>
+                {% for post in posts %}
+                <li>
+                    <a href="/posts/{{post.id}}">{{post.title}}</a>
+                </li>
+                {%endfor%}
+            </ul>
+        </td>
+        <td>
+            <a href="/tags"><h2>Tags</h2></a>
+            <ul>
+                {%for tag in tags%}
+                <li>
+                    <a href="/tags/{{tag.id}}">{{tag.name}}</a>
+                </li>
+                {%endfor%}
+            </ul>
+            <div>
+                <a href="/tags/new">New Tag</a>
+            </div>
+        </td>
+    </tr>
+</table>
+
 {%endblock%}
